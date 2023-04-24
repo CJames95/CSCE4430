@@ -8,6 +8,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Grid from '@mui/material/Unstable_Grid2';
+import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -74,15 +75,15 @@ function App() {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <Button className={classes.menuButton} color="inherit" onClick={handleMenuClick}>
+            <Button className={classes.menuButton} color="inherit">
               Menu
             </Button>
-            <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
-              <MenuItem onClick={handleMenuClose}>Home</MenuItem>
-              <MenuItem onClick={handleMenuClose}>About</MenuItem>
-              <MenuItem onClick={handleMenuClose}>Contact</MenuItem>
-            </Menu>
-            <h1 className={classes.title}>CSCE 4430</h1>
+            <Button className={classes.menuButton} color="inherit">
+              About
+            </Button>
+            <Button className={classes.menuButton} color="inherit">
+              Contact
+            </Button>
           </Toolbar>
         </AppBar>
       </div>
