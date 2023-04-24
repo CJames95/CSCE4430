@@ -18,16 +18,16 @@ const useStyles = makeStyles((theme) => ({
   buttonContainer: {
     display: 'flex',
     width: '100%',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     backgroundColor: 'green',
-    paddingBottom: '10px',
-    paddingTop: '10px',
     border: '2px solid lightgreen',
     marginTop: 0,
   },
   button: {
     backgroundColor: 'lightgreen',
     color: 'white',
+    width: '100%',
+    borderRadius: 0,
     '&:hover': {
       backgroundColor: 'lightblue',
     },
@@ -51,6 +51,7 @@ const ButtonToggle = styled(Button)`
 
 const ButtonGroup = styled.div`
   display: flex;
+  width: 100%;
   justify-content: center;
   padding: 10px;
 `;
@@ -76,7 +77,7 @@ function App() {
   return (
     <div className="App" style={{ backgroundColor: 'green' }}>
       <div className={classes.banner}>
-        <h1>CSCE 4430</h1>
+        <h1>UNT CSCE 4430: Spring '23 - Real Estate Estimator</h1>
       </div>
       <div className={classes.buttonContainer}>
         <Button
