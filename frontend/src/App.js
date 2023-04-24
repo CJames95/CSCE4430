@@ -4,6 +4,10 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+import Grid from '@mui/material/Unstable_Grid2';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -34,12 +38,19 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
+  const [days_to_sell, setDaysToSell] = React.useState('');
   const [zipcode, setZipcode] = React.useState('');
   const [price, setPrice] = React.useState('');
   const [squareFeet, setSquareFeet] = React.useState('');
   const [bathrooms, setBathrooms] = React.useState('');
   const [garage, setGarage] = React.useState('');
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [isChecked, setIsChecked] = React.useState(true);
+
+  const handleIsChecked = () => {
+    setIsChecked(!isChecked);
+    console.log(isChecked);
+  }
 
   const handleMenuClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -59,7 +70,7 @@ function App() {
   };
 
   return (
-    <div className="App" style={{backgroundColor: "white"}}>
+    <Grid>
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
@@ -75,44 +86,96 @@ function App() {
           </Toolbar>
         </AppBar>
       </div>
-      <div className={classes.formContainer}>
-        <form className={classes.form} onSubmit={handleSubmit}>
-          <TextField
-            className={classes.input}
-            label="Zipcode"
-            value={zipcode}
-            onChange={(event) => setZipcode(event.target.value)}
-          />
-          <TextField
-            className={classes.input}
-            label="Price"
-            value={price}
-            onChange={(event) => setPrice(event.target.value)}
-          />
-          <TextField
-            className={classes.input}
-            label="Square Feet"
-            value={squareFeet}
-            onChange={(event) => setSquareFeet(event.target.value)}
-          />
-          <TextField
-            className={classes.input}
-            label="Bathrooms"
-            value={bathrooms}
-            onChange={(event) => setBathrooms(event.target.value)}
-          />
-          <TextField
-            className={classes.input}
-            label="Garage"
-            value={garage}
-            onChange={(event) => setGarage(event.target.value)}
+      <Grid container xs={8} alignItems='center' justifyContent='center' sx={{display: 'flex', flexDirection: 'column'}}>
+        <FormGroup>
+          <FormControlLabel 
+            control={<Switch onChange={handleIsChecked}/>} label = {isChecked ? 'Results by Time to Sell' : 'Results by Price'}/>
+          {(isChecked == true) &&
+            <TextField
+              className={classes.input}
+              label="Zipcode"
+              value={zipcode}
+              onChange={(event) => setZipcode(event.target.value)}
             />
+          }
+          {(isChecked == true) &&
+            <TextField
+             className={classes.input}
+              label="Price"
+              value={price}
+              onChange={(event) => setPrice(event.target.value)}
+            />
+          }
+          {(isChecked == true) &&
+            <TextField
+              className={classes.input}
+              label="Square Feet"
+              value={squareFeet}
+              onChange={(event) => setSquareFeet(event.target.value)}
+            />
+          }
+          {(isChecked == true) &&
+            <TextField
+              className={classes.input}
+              label="Bathrooms"
+              value={bathrooms}
+              onChange={(event) => setBathrooms(event.target.value)}
+            />
+          }
+          {(isChecked == true) &&
+            <TextField
+              className={classes.input}
+              label="Garage"
+              value={garage}
+              onChange={(event) => setGarage(event.target.value)}
+              />
+          }
+          {(isChecked == false) &&
+            <TextField
+              className={classes.input}
+              label="Zipcode"
+              value={zipcode}
+              onChange={(event) => setZipcode(event.target.value)}
+            />
+          }
+          {(isChecked == false) &&
+            <TextField
+             className={classes.input}
+              label="Days to Sell"
+              value={days_to_sell}
+              onChange={(event) => setPrice(event.target.value)}
+            />
+          }
+          {(isChecked == false) &&
+            <TextField
+              className={classes.input}
+              label="Square Feet"
+              value={squareFeet}
+              onChange={(event) => setSquareFeet(event.target.value)}
+            />
+          }
+          {(isChecked == false) &&
+            <TextField
+              className={classes.input}
+              label="Bathrooms"
+              value={bathrooms}
+              onChange={(event) => setBathrooms(event.target.value)}
+            />
+          }
+          {(isChecked == false) &&
+            <TextField
+              className={classes.input}
+              label="Garage"
+              value={garage}
+              onChange={(event) => setGarage(event.target.value)}
+              />
+          }
             <Button className={classes.button} variant="contained" color="primary" type="submit">
               Submit
             </Button>
-          </form>
-        </div>
-      </div>
+          </FormGroup>
+        </Grid>
+      </Grid>
     );
   }
   
