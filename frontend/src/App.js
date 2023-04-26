@@ -91,7 +91,17 @@ function App() {
 
   return (
     <MuiThemeProvider theme={theme}>
-    <Grid>
+    <Grid
+	container
+	spacing={0}
+	direction="column"
+	alignItems="center"
+	justify="center"
+	style={{ minHeight: '50vh' }}
+    >
+	<h>
+		Real Estate Estimator: CSCE 4430
+	</h>
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
@@ -129,7 +139,14 @@ function App() {
         </AppBar>
       </div>
       {homeActive && (
-      <Grid container xs={8} alignItems='center' justifyContent='center' sx={{display: 'flex', flexDirection: 'column'}}>
+      <Grid
+	container
+	spacing={0}
+	direction="column"
+	alignItems="center"
+	justify="center"
+	style={{ minHeight: '50vh' }}
+    >
         <FormGroup>
           <FormControlLabel 
             control={<Switch onChange={handleIsChecked}/>} label = {isChecked ? 'Results by Time to Sell' : 'Results by Price'}/>
@@ -232,14 +249,7 @@ function App() {
       <p>
         This project was created for our CSCE 4430: Programming Languages class project for the Spring 2023 semester
       </p>
-          <a
-            className="App-link"
-            href="/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Real Estate Estimator - Home Page
-          </a>
+         
         </header>
       </div>
       )}
