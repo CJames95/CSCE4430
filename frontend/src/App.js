@@ -11,6 +11,8 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import logo from './North_Texas_Mean_Green_logo.png';
+import { createTheme } from '@mui/material';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,6 +39,19 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
 }));
+
+
+let theme = createTheme({
+  palette: {
+    primary: {
+      main: '#00853E',
+    },
+    secondary: {
+      main: '#00853E',
+    },
+  },
+});
+
 
 function App() {
   const classes = useStyles();
@@ -75,6 +90,7 @@ function App() {
   };
 
   return (
+    <MuiThemeProvider theme={theme}>
     <Grid>
       <div className={classes.root}>
         <AppBar position="static">
@@ -218,11 +234,11 @@ function App() {
       </p>
           <a
             className="App-link"
-            href="https://reactjs.org"
+            href="/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            React Home Page
+            Real Estate Estimator - Home Page
           </a>
         </header>
       </div>
@@ -235,20 +251,21 @@ function App() {
            Help/Contact
          </h1>
      <p>
-       If you have a question or comment you can fill out the Google Form below and we will try to get back with you as soon as possible 
+       If you have a question or comment you can click on the Google Form link below and fill it out. We will try to get back with you as soon as possible 
      </p>
          <a
            className="App-link"
-           href="https://reactjs.org"
+           href="https://docs.google.com/forms/d/e/1FAIpQLSfr_-FoJahDgMl9ieiyATgwaN6KbT3BFvklfMIXrCXgdLTvyA/viewform?usp=share_link"
            target="_blank"
            rel="noopener noreferrer"
          >
-           React Home Page
+           Real Estate Estimator - Help Form
          </a>
        </header>
      </div>
       )}
       </Grid>
+      </MuiThemeProvider>
     );
   }
   
