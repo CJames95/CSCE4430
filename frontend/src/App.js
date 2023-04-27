@@ -113,7 +113,7 @@ function App() {
               setHelpActive(false);
             }}
             >
-              Menu
+              Home
             </Button>
             <Button 
             className={classes.menuButton} color="inherit"
