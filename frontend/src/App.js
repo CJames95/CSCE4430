@@ -45,6 +45,9 @@ function App() {
   const [squareFeet, setSquareFeet] = React.useState('');
   const [bathrooms, setBathrooms] = React.useState('');
   const [garage, setGarage] = React.useState('');
+  const [year, setYear] = React.useState('');
+  const [bedrooms, setBedrooms] = React.useState('');
+  const [half_bathrooms, setHalfBathrooms] = React.useState('');
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [isChecked, setIsChecked] = React.useState(true);
 
@@ -91,6 +94,7 @@ function App() {
         <FormGroup>
           <FormControlLabel 
             control={<Switch onChange={handleIsChecked}/>} label = {isChecked ? 'Results by Time to Sell' : 'Results by Price'}/>
+          {/* Results by Time to Sell */}
           {(isChecked == true) &&
             <TextField
               className={classes.input}
@@ -131,12 +135,13 @@ function App() {
               onChange={(event) => setGarage(event.target.value)}
               />
           }
+          {/* Results by Price */}
           {(isChecked == false) &&
             <TextField
               className={classes.input}
-              label="Zipcode"
-              value={zipcode}
-              onChange={(event) => setZipcode(event.target.value)}
+              label="Total Square Feet"
+              value={squareFeet}
+              onChange={(event) => setSquareFeet(event.target.value)}
             />
           }
           {(isChecked == false) &&
@@ -150,9 +155,17 @@ function App() {
           {(isChecked == false) &&
             <TextField
               className={classes.input}
-              label="Square Feet"
-              value={squareFeet}
-              onChange={(event) => setSquareFeet(event.target.value)}
+              label="Zip Code"
+              value={zipcode}
+              onChange={(event) => setZipcode(event.target.value)}
+            />
+          }
+          {(isChecked == false) &&
+            <TextField
+              className={classes.input}
+              label="Bedrooms"
+              value={bedrooms}
+              onChange={(event) => setBedrooms(event.target.value)}
             />
           }
           {(isChecked == false) &&
@@ -166,7 +179,23 @@ function App() {
           {(isChecked == false) &&
             <TextField
               className={classes.input}
-              label="Garage"
+              label="Half Bathrooms"
+              value={half_bathrooms}
+              onChange={(event) => setHalfBathrooms(event.target.value)}
+            />
+          }
+          {(isChecked == false) &&
+            <TextField
+              className={classes.input}
+              label="Year Built"
+              value={year}
+              onChange={(event) => setYear(event.target.value)}
+            />
+          }
+          {(isChecked == false) &&
+            <TextField
+              className={classes.input}
+              label="Has Garage"
               value={garage}
               onChange={(event) => setGarage(event.target.value)}
               />
