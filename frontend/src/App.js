@@ -13,6 +13,8 @@ import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import logo from './North_Texas_Mean_Green_logo.png';
 import { createTheme } from '@mui/material';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import logo from './logo.svg';
+import './App.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 let theme = createTheme({
   palette: {
     primary: {
@@ -54,41 +55,6 @@ let theme = createTheme({
 
 
 function App() {
-  const classes = useStyles();
-  const [days_to_sell, setDaysToSell] = React.useState('');
-  const [zipcode, setZipcode] = React.useState('');
-  const [price, setPrice] = React.useState('');
-  const [squareFeet, setSquareFeet] = React.useState('');
-  const [bathrooms, setBathrooms] = React.useState('');
-  const [garage, setGarage] = React.useState('');
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [isChecked, setIsChecked] = React.useState(true);
-  const [homeActive, setHomeActive] = useState(true);
-  const [aboutUsActive, setAboutUsActive] = useState(false);
-  const [helpActive, setHelpActive] = useState(false);
-
-  const handleIsChecked = () => {
-    setIsChecked(!isChecked);
-    console.log(isChecked);
-  }
-
-  const handleMenuClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(`Zipcode: ${zipcode}`);
-    console.log(`Price: ${price}`);
-    console.log(`Square Feet: ${squareFeet}`);
-    console.log(`Bathrooms: ${bathrooms}`);
-    console.log(`Garage: ${garage}`);
-  };
-
   return (
     <MuiThemeProvider theme={theme}>
     <Grid
@@ -288,4 +254,3 @@ function App() {
   }
   
   export default App;
-  
